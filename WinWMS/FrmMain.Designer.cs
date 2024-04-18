@@ -34,16 +34,16 @@
             this.角色管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblLoginTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblLoginTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblAction = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblBanQuan = new System.Windows.Forms.ToolStripStatusLabel();
             this.WMS_Tools = new System.Windows.Forms.ToolStrip();
             this.WMS_Pages = new System.Windows.Forms.TabControl();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblUName = new System.Windows.Forms.ToolStripStatusLabel();
             this.WMS_Menus.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,13 +76,13 @@
             // 用户管理ToolStripMenuItem
             // 
             this.用户管理ToolStripMenuItem.Name = "用户管理ToolStripMenuItem";
-            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.用户管理ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             this.用户管理ToolStripMenuItem.Text = "用户管理";
             // 
             // 角色管理ToolStripMenuItem
             // 
             this.角色管理ToolStripMenuItem.Name = "角色管理ToolStripMenuItem";
-            this.角色管理ToolStripMenuItem.Size = new System.Drawing.Size(224, 30);
+            this.角色管理ToolStripMenuItem.Size = new System.Drawing.Size(170, 30);
             this.角色管理ToolStripMenuItem.Text = "角色管理";
             // 
             // toolStripMenuItem1
@@ -110,15 +110,6 @@
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // lblLoginTime
-            // 
-            this.lblLoginTime.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblLoginTime.ForeColor = System.Drawing.Color.Blue;
-            this.lblLoginTime.Margin = new System.Windows.Forms.Padding(5, 4, 0, 2);
-            this.lblLoginTime.Name = "lblLoginTime";
-            this.lblLoginTime.Size = new System.Drawing.Size(161, 30);
-            this.lblLoginTime.Text = "2022-10-25 10:24:30";
-            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
@@ -127,6 +118,15 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(84, 30);
             this.toolStripStatusLabel1.Text = "登录时间：";
+            // 
+            // lblLoginTime
+            // 
+            this.lblLoginTime.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblLoginTime.ForeColor = System.Drawing.Color.Blue;
+            this.lblLoginTime.Margin = new System.Windows.Forms.Padding(5, 4, 0, 2);
+            this.lblLoginTime.Name = "lblLoginTime";
+            this.lblLoginTime.Size = new System.Drawing.Size(161, 30);
+            this.lblLoginTime.Text = "2022-10-25 10:24:30";
             // 
             // toolStripStatusLabel3
             // 
@@ -145,6 +145,24 @@
             this.lblAction.Name = "lblAction";
             this.lblAction.Size = new System.Drawing.Size(39, 30);
             this.lblAction.Text = "首页";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.DimGray;
+            this.toolStripStatusLabel2.Margin = new System.Windows.Forms.Padding(10, 4, 0, 2);
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(84, 30);
+            this.toolStripStatusLabel2.Text = "当前用户：";
+            // 
+            // lblUName
+            // 
+            this.lblUName.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblUName.ForeColor = System.Drawing.Color.Purple;
+            this.lblUName.Margin = new System.Windows.Forms.Padding(5, 4, 0, 2);
+            this.lblUName.Name = "lblUName";
+            this.lblUName.Size = new System.Drawing.Size(57, 30);
+            this.lblUName.Text = "admin";
             // 
             // toolStripStatusLabel6
             // 
@@ -183,24 +201,6 @@
             this.WMS_Pages.Size = new System.Drawing.Size(1256, 547);
             this.WMS_Pages.TabIndex = 1;
             // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.DimGray;
-            this.toolStripStatusLabel2.Margin = new System.Windows.Forms.Padding(10, 4, 0, 2);
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(84, 30);
-            this.toolStripStatusLabel2.Text = "当前用户：";
-            // 
-            // lblUName
-            // 
-            this.lblUName.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.lblUName.ForeColor = System.Drawing.Color.Purple;
-            this.lblUName.Margin = new System.Windows.Forms.Padding(5, 4, 0, 2);
-            this.lblUName.Name = "lblUName";
-            this.lblUName.Size = new System.Drawing.Size(57, 30);
-            this.lblUName.Text = "admin";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -213,6 +213,7 @@
             this.MainMenuStrip = this.WMS_Menus;
             this.Name = "FrmMain";
             this.Text = "仓储管理系统";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.WMS_Menus.ResumeLayout(false);
             this.WMS_Menus.PerformLayout();

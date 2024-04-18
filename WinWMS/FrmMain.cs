@@ -145,7 +145,20 @@ namespace WinWMS
                     CreateForm(mUrl, tmInfo.IsTop);
                 else
                 {
-                   
+                    //退出系统
+                    if (tmInfo.TMDesp == ToolMenuDesp.ExitSystem.ToString())
+                    {
+                        Application.Exit();
+                    }
+                    else if (tmInfo.TMDesp == ToolMenuDesp.RefreshMenu.ToString())
+                    {
+                        AddMenusAndToolMenus();
+                    }
+                    //更换操作者
+                    else if (tmInfo.TMDesp == ToolMenuDesp.ChangeActor.ToString())
+                    {
+
+                    }
                 }
             }
         }
@@ -304,6 +317,27 @@ namespace WinWMS
             ModifyPwd = 2,
             OpenSys = 3,
             UnOpenSys = 4
+        }
+        /// <summary>
+        /// 特殊工具栏项
+        /// </summary>
+        private enum ToolMenuDesp
+        {
+            ExitSystem=1,
+            ChangeActor= 2,
+            RefreshMenu
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //太不友好？---选择机会---确认是否关闭   是--关闭； 否---不关闭
+            //会出现两弹框？？
+            if (MessageHelper.Confirm("关闭系统", "您确定要退出系统？") == DialogResult.Yes)
+            {
+                Application.ExitThread();//退出消息循环
+            }
+            else
+                e.Cancel = true;
         }
     }
 }
