@@ -44,8 +44,10 @@
             this.lblBanQuan = new System.Windows.Forms.ToolStripStatusLabel();
             this.WMS_Tools = new System.Windows.Forms.ToolStrip();
             this.WMS_Pages = new System.Windows.Forms.TabControl();
+            this.picClose = new System.Windows.Forms.PictureBox();
             this.WMS_Menus.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
             // 
             // WMS_Menus
@@ -201,11 +203,23 @@
             this.WMS_Pages.Size = new System.Drawing.Size(1256, 547);
             this.WMS_Pages.TabIndex = 1;
             // 
+            // picClose
+            // 
+            this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picClose.Image = global::WinWMS.Properties.Resources.close;
+            this.picClose.Location = new System.Drawing.Point(1223, 35);
+            this.picClose.Name = "picClose";
+            this.picClose.Size = new System.Drawing.Size(30, 31);
+            this.picClose.TabIndex = 4;
+            this.picClose.TabStop = false;
+            this.picClose.Click += new System.EventHandler(this.picClose_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1256, 582);
+            this.Controls.Add(this.picClose);
             this.Controls.Add(this.WMS_Tools);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.WMS_Pages);
@@ -215,10 +229,12 @@
             this.Text = "仓储管理系统";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.VisibleChanged += new System.EventHandler(this.FrmMain_VisibleChanged);
             this.WMS_Menus.ResumeLayout(false);
             this.WMS_Menus.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,5 +257,6 @@
         private System.Windows.Forms.TabControl WMS_Pages;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel lblUName;
+        private System.Windows.Forms.PictureBox picClose;
     }
 }

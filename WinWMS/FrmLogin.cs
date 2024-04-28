@@ -64,6 +64,19 @@ namespace WinWMS
                 else
                 {
                     //更换操作员todo
+                    foreach (Form item in Application.OpenForms)
+                    {
+                        if (item.Name == "FrmMain")
+                        {
+                            item.Tag = new LoginModel()
+                            {
+                                URList = urList,
+                                LoginForm = this
+                            };
+                            item.Show();
+                            break;
+                        }
+                    }
                 }
             }
             this.Hide();

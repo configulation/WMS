@@ -30,6 +30,7 @@ namespace WinWMS
         string uName = "";
         FrmLogin fLogin = null;
         List<ViewUserRoleModel> urList = new List<ViewUserRoleModel>();
+        int isFirst=0;
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
@@ -157,6 +158,11 @@ namespace WinWMS
                     //更换操作者
                     else if (tmInfo.TMDesp == ToolMenuDesp.ChangeActor.ToString())
                     {
+                        // 重新启动应用程序
+                        //Application.Restart();
+                        this.Hide();
+                        fLogin.Show();
+                        isFirst = 2;
 
                     }
                 }
@@ -332,12 +338,31 @@ namespace WinWMS
         {
             //太不友好？---选择机会---确认是否关闭   是--关闭； 否---不关闭
             //会出现两弹框？？
-            if (MessageHelper.Confirm("关闭系统", "您确定要退出系统？") == DialogResult.Yes)
+            if (MessageHelper.Confirm("关闭系统", "您确定要退出系统？") == DialogResult.OK)
             {
                 Application.ExitThread();//退出消息循环
             }
             else
                 e.Cancel = true;
+        }
+
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            TabPage tabPage = WMS_Pages.SelectedTab;
+            if (tabPage != null)
+            {
+                WMS_Pages.TabPages.Remove(tabPage);
+                FormUtility.CloseOpenForm(tabPage.Name);
+            }
+        }
+
+        private void FrmMain_VisibleChanged(object sender, EventArgs e)
+        {
+            if (isFirst == 2)
+            {
+                InitMenuInfo();
+                isFirst = 1;
+            }
         }
     }
 }
