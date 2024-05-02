@@ -1,5 +1,5 @@
 ﻿using DAL.Base;
-using PSI.Models.DModels;
+using Models.DModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace DAL
                 strWhere += $" MId in (select MId from RoleMenuInfos where RoleId in ({Ids}) )";
             }
 
-            return GetModelList(strWhere, cols, "ParentId");
+            return GetModelList(strWhere, cols, "MOrder");
         }
     }
 }

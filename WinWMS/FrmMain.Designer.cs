@@ -210,6 +210,7 @@
             this.picClose.Location = new System.Drawing.Point(1223, 35);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(30, 31);
+            this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picClose.TabIndex = 4;
             this.picClose.TabStop = false;
             this.picClose.Click += new System.EventHandler(this.picClose_Click);

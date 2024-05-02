@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinPSI.FModels
+namespace WinFModels
 {
         /// <summary>
         /// 传入付款页面的实体

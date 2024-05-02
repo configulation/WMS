@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinPSI.FModels
+namespace WinFModels
 {
     /// <summary>
     /// 权限页面传值的实体

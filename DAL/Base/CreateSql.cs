@@ -82,7 +82,7 @@ namespace DAL.Base
             }
             properties = PropertyHelper.GetProperties<T>(cols);
             string strCols = string.Join(",", properties.Select(p => p.GetColName()));
-            string paraCols = string.Join(",", properties.Select(p => p.GetValue(model) != null ? p.GetValue(model).ToString() : "NULL"));
+            string paraCols = string.Join(",", properties.Select(p => p.GetValue(model) != null ? $"N'{p.GetValue(model).ToString()}'" : "NULL"));
             sql = $"insert into [{tableName}] ({strCols}) values ({paraCols})";
             if (isReturn == 1)
                 sql += ";select @@identity";

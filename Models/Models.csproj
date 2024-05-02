@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DModels\MenuInfoModel.cs" />
+    <Compile Include="DModels\RoleInfoModel.cs" />
     <Compile Include="DModels\ToolMenuInfoModel .cs" />
     <Compile Include="DModels\UserInfoModel.cs" />
+    <Compile Include="DModels\UserRoleInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIModels\CheckModel.cs" />
     <Compile Include="UIModels\PageModel.cs" />

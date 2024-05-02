@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WinWMS;
 
-namespace WinPSI.FModels
+namespace WinFModels
 {
     /// <summary>
     /// 用于登录页面向主页面传递参数的实体

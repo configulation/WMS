@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WinWMS;
 
-namespace WinPSI.FModels
+namespace WinFModels
 {
     public class FMPwdModel
     {

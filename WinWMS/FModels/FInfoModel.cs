@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinPSI.FModels
+namespace WinFModels
 {
     /// <summary>
     /// 主要用于列表页面向信息页面传值

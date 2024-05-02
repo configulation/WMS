@@ -9,12 +9,13 @@ namespace Models.DModels
 {
     [Table("UserInfos")]
     [Serializable]
-    [PrimaryKey("UserId")]
+    [PrimaryKey("UserId",autoIncrement = true)]
     public class UserInfoModel
     {
         /// <summary>
         /// UserId
         /// </summary>		
+        /// 
         public int UserId { get; set; }
         /// <summary>
         /// UserName

@@ -1,6 +1,6 @@
 ﻿using BLL;
 using Models.VModels;
-using PSI.Models.DModels;
+using Models.DModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Utility;
-using WinPSI.FModels;
+using WinFModels;
 
 namespace WinWMS
 {

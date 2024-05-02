@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using Common.CustAttributes;
 
-namespace PSI.Models.DModels
+namespace Models.DModels
 {
     /// <summary>
     /// 工具栏组信息实体
