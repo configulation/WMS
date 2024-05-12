@@ -17,5 +17,10 @@ namespace BLL
             string Ids = string.Join(",", roleIds);
             return menuDAL.GetMenuList(Ids);
         }
+
+        public List<MenuInfoModel> GetMenuListByKeyWords(string keyword)
+        {
+            return menuDAL.GetMenuListByKeyWords(keyword);
+        }
     }
 }

@@ -29,5 +29,17 @@ namespace DAL
 
             return GetModelList(strWhere, cols, "MOrder");
         }
+
+        public List<MenuInfoModel> GetMenuListByKeyWords(string keyword)
+        {
+            string strWhere = "";
+            string cols = "MId,MName,ParentId,ParentName,MKey,MUrl,IsTop,MOrder,MDesp";
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                strWhere += $" (MName like @keyword or ParentName like @keyword  )";
+            }
+
+            return GetModelList(strWhere, cols, "MOrder");
+        }
     }
 }

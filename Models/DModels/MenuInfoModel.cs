@@ -11,7 +11,7 @@ namespace Models.DModels
     /// </summary>
     [Serializable]
     [Table("MenuInfos")]
-    [PrimaryKey("MId")]
+    [PrimaryKey("MId",autoIncrement =true)]
     public class MenuInfoModel
     {
         /// <summary>

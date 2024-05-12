@@ -31,12 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbInfo = new System.Windows.Forms.GroupBox();
+            this.btnFind = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvUserList = new System.Windows.Forms.DataGridView();
-            this.btnFind = new System.Windows.Forms.Button();
             this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserState = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -60,10 +60,25 @@
             this.gbInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.gbInfo.Location = new System.Drawing.Point(24, 12);
             this.gbInfo.Name = "gbInfo";
-            this.gbInfo.Size = new System.Drawing.Size(1242, 117);
+            this.gbInfo.Size = new System.Drawing.Size(1287, 117);
             this.gbInfo.TabIndex = 2;
             this.gbInfo.TabStop = false;
             this.gbInfo.Text = "用户信息";
+            // 
+            // btnFind
+            // 
+            this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnFind.FlatAppearance.BorderSize = 0;
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.Location = new System.Drawing.Point(479, 28);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(78, 32);
+            this.btnFind.TabIndex = 11;
+            this.btnFind.Text = "查询";
+            this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // btnReset
             // 
@@ -73,7 +88,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnReset.ForeColor = System.Drawing.Color.White;
-            this.btnReset.Location = new System.Drawing.Point(1136, 74);
+            this.btnReset.Location = new System.Drawing.Point(1181, 74);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(72, 33);
             this.btnReset.TabIndex = 3;
@@ -88,7 +103,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(1136, 27);
+            this.btnAdd.Location = new System.Drawing.Point(1181, 27);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(72, 33);
             this.btnAdd.TabIndex = 3;
@@ -145,24 +160,9 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvUserList.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUserList.RowTemplate.Height = 27;
-            this.dgvUserList.Size = new System.Drawing.Size(1242, 439);
+            this.dgvUserList.Size = new System.Drawing.Size(1253, 448);
             this.dgvUserList.TabIndex = 3;
             this.dgvUserList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUserList_CellContentClick);
-            // 
-            // btnFind
-            // 
-            this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnFind.FlatAppearance.BorderSize = 0;
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(479, 28);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(78, 32);
-            this.btnFind.TabIndex = 11;
-            this.btnFind.Text = "查询";
-            this.btnFind.UseVisualStyleBackColor = false;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // UserId
             // 
@@ -217,7 +217,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1292, 612);
+            this.ClientSize = new System.Drawing.Size(1337, 606);
             this.Controls.Add(this.dgvUserList);
             this.Controls.Add(this.gbInfo);
             this.Name = "FrmUserList";

@@ -60,7 +60,7 @@
             this.toolStripMenuItem1});
             this.WMS_Menus.Location = new System.Drawing.Point(0, 0);
             this.WMS_Menus.Name = "WMS_Menus";
-            this.WMS_Menus.Size = new System.Drawing.Size(1256, 35);
+            this.WMS_Menus.Size = new System.Drawing.Size(1227, 35);
             this.WMS_Menus.TabIndex = 0;
             this.WMS_Menus.Text = "menuStrip1";
             // 
@@ -106,9 +106,9 @@
             this.lblUName,
             this.toolStripStatusLabel6,
             this.lblBanQuan});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 546);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 547);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1256, 36);
+            this.statusStrip1.Size = new System.Drawing.Size(1227, 36);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -190,24 +190,27 @@
             this.WMS_Tools.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.WMS_Tools.Location = new System.Drawing.Point(0, 35);
             this.WMS_Tools.Name = "WMS_Tools";
-            this.WMS_Tools.Size = new System.Drawing.Size(1256, 34);
+            this.WMS_Tools.Size = new System.Drawing.Size(1227, 34);
             this.WMS_Tools.TabIndex = 3;
             this.WMS_Tools.Text = "toolStrip1";
             // 
             // WMS_Pages
             // 
-            this.WMS_Pages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WMS_Pages.Location = new System.Drawing.Point(0, 35);
+            this.WMS_Pages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WMS_Pages.Location = new System.Drawing.Point(0, 72);
             this.WMS_Pages.Name = "WMS_Pages";
             this.WMS_Pages.SelectedIndex = 0;
-            this.WMS_Pages.Size = new System.Drawing.Size(1256, 547);
+            this.WMS_Pages.Size = new System.Drawing.Size(1227, 511);
             this.WMS_Pages.TabIndex = 1;
+            this.WMS_Pages.SizeChanged += new System.EventHandler(this.WMS_Pages_SizeChanged);
             // 
             // picClose
             // 
             this.picClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picClose.Image = global::WinWMS.Properties.Resources.close;
-            this.picClose.Location = new System.Drawing.Point(1223, 35);
+            this.picClose.Location = new System.Drawing.Point(1194, 35);
             this.picClose.Name = "picClose";
             this.picClose.Size = new System.Drawing.Size(30, 31);
             this.picClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,11 +222,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1256, 582);
+            this.ClientSize = new System.Drawing.Size(1227, 583);
+            this.Controls.Add(this.WMS_Pages);
             this.Controls.Add(this.picClose);
             this.Controls.Add(this.WMS_Tools);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.WMS_Pages);
             this.Controls.Add(this.WMS_Menus);
             this.MainMenuStrip = this.WMS_Menus;
             this.Name = "FrmMain";

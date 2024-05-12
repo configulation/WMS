@@ -364,5 +364,28 @@ namespace WinWMS
                 isFirst = 1;
             }
         }
+
+        private void WMS_Pages_SizeChanged(object sender, EventArgs e)
+        {
+            if (WMS_Pages.TabPages.Count > 0)
+            {
+                Size size = WMS_Pages.SelectedTab.Size;
+                foreach (TabPage page in WMS_Pages.TabPages)
+                {
+                    foreach (Control c in page.Controls)
+                    {
+                        if (c is Form)
+                        {
+                            Form frm = c as Form;
+                            frm.WindowState = FormWindowState.Normal;
+                            frm.SuspendLayout();
+                            frm.Size = size;
+                            frm.ResumeLayout(true);
+                            frm.WindowState = FormWindowState.Maximized;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
