@@ -221,7 +221,7 @@
             this.Controls.Add(this.dgvUserList);
             this.Controls.Add(this.gbInfo);
             this.Name = "FrmUserList";
-            this.Text = "FrmUserList";
+            this.Text = "用户管理";
             this.Load += new System.EventHandler(this.FrmUserList_Load);
             this.gbInfo.ResumeLayout(false);
             this.gbInfo.PerformLayout();

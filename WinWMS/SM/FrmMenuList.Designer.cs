@@ -31,8 +31,9 @@
             System.Windows.Forms.Panel panelWhere;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuList));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.btnFind = new System.Windows.Forms.Button();
             this.txtkeywords = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tsMenus = new System.Windows.Forms.ToolStrip();
@@ -47,19 +48,17 @@
             this.tsbtnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvMenuList = new System.Windows.Forms.DataGridView();
-            this.colChk = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.MId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ParentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddChild = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Delete = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.btnFind = new System.Windows.Forms.Button();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.AddChild = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.MUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MOrder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMenuList = new System.Windows.Forms.DataGridView();
             panelWhere = new System.Windows.Forms.Panel();
             panelWhere.SuspendLayout();
             this.tsMenus.SuspendLayout();
@@ -75,8 +74,22 @@
             panelWhere.Location = new System.Drawing.Point(0, 64);
             panelWhere.Margin = new System.Windows.Forms.Padding(4);
             panelWhere.Name = "panelWhere";
-            panelWhere.Size = new System.Drawing.Size(1319, 70);
+            panelWhere.Size = new System.Drawing.Size(1270, 70);
             panelWhere.TabIndex = 5;
+            // 
+            // btnFind
+            // 
+            this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnFind.FlatAppearance.BorderSize = 0;
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.Location = new System.Drawing.Point(520, 16);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(78, 32);
+            this.btnFind.TabIndex = 24;
+            this.btnFind.Text = "查询";
+            this.btnFind.UseVisualStyleBackColor = false;
             // 
             // txtkeywords
             // 
@@ -119,7 +132,7 @@
             this.tsMenus.Location = new System.Drawing.Point(0, 0);
             this.tsMenus.Name = "tsMenus";
             this.tsMenus.Padding = new System.Windows.Forms.Padding(0, 0, 1, 2);
-            this.tsMenus.Size = new System.Drawing.Size(1319, 64);
+            this.tsMenus.Size = new System.Drawing.Size(1270, 64);
             this.tsMenus.TabIndex = 4;
             this.tsMenus.Text = "toolStrip1";
             // 
@@ -135,6 +148,7 @@
             this.tsbtnAdd.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbtnAdd.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.tsbtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtnAdd.Click += new System.EventHandler(this.tsbtnAdd_Click);
             // 
             // tsbtnEdit
             // 
@@ -148,6 +162,7 @@
             this.tsbtnEdit.Text = " 修改";
             this.tsbtnEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.tsbtnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtnEdit.Click += new System.EventHandler(this.tsbtnEdit_Click);
             // 
             // tsbtnDelete
             // 
@@ -160,6 +175,7 @@
             this.tsbtnDelete.Text = " 删除";
             this.tsbtnDelete.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.tsbtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsbtnDelete.Click += new System.EventHandler(this.tsbtnDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -222,118 +238,27 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 62);
             // 
-            // dgvMenuList
+            // Delete
             // 
-            this.dgvMenuList.AllowUserToAddRows = false;
-            this.dgvMenuList.AllowUserToDeleteRows = false;
-            this.dgvMenuList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvMenuList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvMenuList.BackgroundColor = System.Drawing.Color.White;
-            this.dgvMenuList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMenuList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMenuList.ColumnHeadersHeight = 35;
-            this.dgvMenuList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvMenuList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colChk,
-            this.MId,
-            this.MName,
-            this.ParentId,
-            this.ParentName,
-            this.MOrder,
-            this.MKey,
-            this.MUrl,
-            this.AddChild,
-            this.dataGridViewLinkColumn1,
-            this.Delete});
-            this.dgvMenuList.EnableHeadersVisualStyles = false;
-            this.dgvMenuList.GridColor = System.Drawing.Color.LightSteelBlue;
-            this.dgvMenuList.Location = new System.Drawing.Point(12, 166);
-            this.dgvMenuList.MultiSelect = false;
-            this.dgvMenuList.Name = "dgvMenuList";
-            this.dgvMenuList.RowHeadersWidth = 30;
-            this.dgvMenuList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            this.dgvMenuList.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvMenuList.RowTemplate.Height = 27;
-            this.dgvMenuList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMenuList.Size = new System.Drawing.Size(1295, 468);
-            this.dgvMenuList.TabIndex = 29;
+            dataGridViewCellStyle1.NullValue = "删除";
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Delete.FillWeight = 50F;
+            this.Delete.HeaderText = "删除";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // colChk
+            // dataGridViewLinkColumn1
             // 
-            this.colChk.FillWeight = 50F;
-            this.colChk.HeaderText = "选择";
-            this.colChk.MinimumWidth = 6;
-            this.colChk.Name = "colChk";
-            // 
-            // MId
-            // 
-            this.MId.DataPropertyName = "MId";
-            this.MId.FillWeight = 80F;
-            this.MId.HeaderText = "编号";
-            this.MId.MinimumWidth = 6;
-            this.MId.Name = "MId";
-            this.MId.ReadOnly = true;
-            // 
-            // MName
-            // 
-            this.MName.DataPropertyName = "MName";
-            this.MName.FillWeight = 200F;
-            this.MName.HeaderText = "名称";
-            this.MName.MinimumWidth = 6;
-            this.MName.Name = "MName";
-            this.MName.ReadOnly = true;
-            // 
-            // ParentId
-            // 
-            this.ParentId.DataPropertyName = "ParentId";
-            this.ParentId.HeaderText = "父菜单编号";
-            this.ParentId.MinimumWidth = 6;
-            this.ParentId.Name = "ParentId";
-            this.ParentId.ReadOnly = true;
-            // 
-            // ParentName
-            // 
-            this.ParentName.DataPropertyName = "ParentName";
-            this.ParentName.HeaderText = "父菜单名称";
-            this.ParentName.MinimumWidth = 6;
-            this.ParentName.Name = "ParentName";
-            this.ParentName.ReadOnly = true;
-            this.ParentName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // MOrder
-            // 
-            this.MOrder.DataPropertyName = "MOrder";
-            this.MOrder.HeaderText = "排序号";
-            this.MOrder.MinimumWidth = 6;
-            this.MOrder.Name = "MOrder";
-            this.MOrder.ReadOnly = true;
-            // 
-            // MKey
-            // 
-            this.MKey.DataPropertyName = "MKey";
-            this.MKey.FillWeight = 60F;
-            this.MKey.HeaderText = "快捷键";
-            this.MKey.MinimumWidth = 6;
-            this.MKey.Name = "MKey";
-            this.MKey.ReadOnly = true;
-            // 
-            // MUrl
-            // 
-            this.MUrl.DataPropertyName = "MUrl";
-            this.MUrl.HeaderText = "关联页面";
-            this.MUrl.MinimumWidth = 6;
-            this.MUrl.Name = "MUrl";
+            this.dataGridViewLinkColumn1.FillWeight = 50F;
+            this.dataGridViewLinkColumn1.HeaderText = "修改";
+            this.dataGridViewLinkColumn1.MinimumWidth = 6;
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewLinkColumn1.Text = "修改";
+            this.dataGridViewLinkColumn1.UseColumnTextForLinkValue = true;
             // 
             // AddChild
             // 
@@ -347,52 +272,121 @@
             this.AddChild.TrackVisitedState = false;
             this.AddChild.UseColumnTextForLinkValue = true;
             // 
-            // dataGridViewLinkColumn1
+            // MUrl
             // 
-            this.dataGridViewLinkColumn1.FillWeight = 50F;
-            this.dataGridViewLinkColumn1.HeaderText = "修改";
-            this.dataGridViewLinkColumn1.MinimumWidth = 6;
-            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            this.dataGridViewLinkColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLinkColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewLinkColumn1.Text = "修改";
-            this.dataGridViewLinkColumn1.UseColumnTextForLinkValue = true;
+            this.MUrl.DataPropertyName = "MUrl";
+            this.MUrl.HeaderText = "关联页面";
+            this.MUrl.MinimumWidth = 6;
+            this.MUrl.Name = "MUrl";
             // 
-            // Delete
+            // MKey
             // 
-            dataGridViewCellStyle2.NullValue = "删除";
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Delete.FillWeight = 50F;
-            this.Delete.HeaderText = "删除";
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.MKey.DataPropertyName = "MKey";
+            this.MKey.FillWeight = 60F;
+            this.MKey.HeaderText = "快捷键";
+            this.MKey.MinimumWidth = 6;
+            this.MKey.Name = "MKey";
+            this.MKey.ReadOnly = true;
             // 
-            // btnFind
+            // MOrder
             // 
-            this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnFind.FlatAppearance.BorderSize = 0;
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(520, 16);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(78, 32);
-            this.btnFind.TabIndex = 24;
-            this.btnFind.Text = "查询";
-            this.btnFind.UseVisualStyleBackColor = false;
+            this.MOrder.DataPropertyName = "MOrder";
+            this.MOrder.HeaderText = "排序号";
+            this.MOrder.MinimumWidth = 6;
+            this.MOrder.Name = "MOrder";
+            this.MOrder.ReadOnly = true;
+            // 
+            // ParentName
+            // 
+            this.ParentName.DataPropertyName = "ParentName";
+            this.ParentName.HeaderText = "父菜单名称";
+            this.ParentName.MinimumWidth = 6;
+            this.ParentName.Name = "ParentName";
+            this.ParentName.ReadOnly = true;
+            this.ParentName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ParentId
+            // 
+            this.ParentId.DataPropertyName = "ParentId";
+            this.ParentId.HeaderText = "父菜单编号";
+            this.ParentId.MinimumWidth = 6;
+            this.ParentId.Name = "ParentId";
+            this.ParentId.ReadOnly = true;
+            // 
+            // MName
+            // 
+            this.MName.DataPropertyName = "MName";
+            this.MName.FillWeight = 200F;
+            this.MName.HeaderText = "名称";
+            this.MName.MinimumWidth = 6;
+            this.MName.Name = "MName";
+            this.MName.ReadOnly = true;
+            // 
+            // MId
+            // 
+            this.MId.DataPropertyName = "MId";
+            this.MId.FillWeight = 80F;
+            this.MId.HeaderText = "编号";
+            this.MId.MinimumWidth = 6;
+            this.MId.Name = "MId";
+            this.MId.ReadOnly = true;
+            // 
+            // dgvMenuList
+            // 
+            this.dgvMenuList.AllowUserToAddRows = false;
+            this.dgvMenuList.AllowUserToDeleteRows = false;
+            this.dgvMenuList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMenuList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMenuList.BackgroundColor = System.Drawing.Color.White;
+            this.dgvMenuList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMenuList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMenuList.ColumnHeadersHeight = 35;
+            this.dgvMenuList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvMenuList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MId,
+            this.MName,
+            this.ParentId,
+            this.ParentName,
+            this.MOrder,
+            this.MKey,
+            this.MUrl,
+            this.AddChild,
+            this.dataGridViewLinkColumn1,
+            this.Delete});
+            this.dgvMenuList.EnableHeadersVisualStyles = false;
+            this.dgvMenuList.GridColor = System.Drawing.Color.LightSteelBlue;
+            this.dgvMenuList.Location = new System.Drawing.Point(12, 141);
+            this.dgvMenuList.Name = "dgvMenuList";
+            this.dgvMenuList.RowHeadersWidth = 30;
+            this.dgvMenuList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            this.dgvMenuList.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvMenuList.RowTemplate.Height = 27;
+            this.dgvMenuList.Size = new System.Drawing.Size(1246, 397);
+            this.dgvMenuList.TabIndex = 29;
+            this.dgvMenuList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuList_CellContentClick);
             // 
             // FrmMenuList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 646);
+            this.ClientSize = new System.Drawing.Size(1270, 550);
             this.Controls.Add(this.dgvMenuList);
             this.Controls.Add(panelWhere);
             this.Controls.Add(this.tsMenus);
             this.Name = "FrmMenuList";
-            this.Text = "FrmMenuList";
+            this.Text = "菜单管理";
+            this.Load += new System.EventHandler(this.FrmMenuList_Load);
             panelWhere.ResumeLayout(false);
             panelWhere.PerformLayout();
             this.tsMenus.ResumeLayout(false);
@@ -417,18 +411,17 @@
         private System.Windows.Forms.ToolStripButton tsbtnRefresh;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.DataGridView dgvMenuList;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colChk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MOrder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MUrl;
-        private System.Windows.Forms.DataGridViewLinkColumn AddChild;
-        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
-        private System.Windows.Forms.DataGridViewLinkColumn Delete;
         private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.DataGridViewLinkColumn Delete;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
+        private System.Windows.Forms.DataGridViewLinkColumn AddChild;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MUrl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MKey;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MOrder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MId;
+        private System.Windows.Forms.DataGridView dgvMenuList;
     }
 }

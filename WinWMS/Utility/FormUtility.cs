@@ -329,7 +329,24 @@ namespace Utility
             tab.TabPages.Add(page);
             tab.SelectedTab = page;
             form.Show();
-        } 
+        }
+
+        /// <summary>
+        /// try  catch 异常处理
+        /// </summary>
+        /// <param name="act"></param>
+        /// <param name="message"></param>
+        public static void TryCatch(this Action act, string message)
+        {
+            try
+            {
+                act.Invoke();
+            }
+            catch (Exception ex)
+            {
+                MessageHelper.Error("",ex.Message);
+            }
+        }
         #endregion
 
     }

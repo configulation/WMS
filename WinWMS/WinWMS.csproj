@@ -58,6 +58,12 @@
     <Compile Include="FModels\FInfoModel.cs" />
     <Compile Include="FModels\FMPwdModel.cs" />
     <Compile Include="FModels\FRightModel.cs" />
+    <Compile Include="SM\FrmMenuInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmMenuInfo.Designer.cs">
+      <DependentUpon>FrmMenuInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FModels\LoginModel.cs" />
     <Compile Include="FModels\PayModel.cs" />
     <Compile Include="FModels\ShInfoModel.cs" />
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Utility\FormUtility.cs" />
     <Compile Include="Utility\MessageHelper.cs" />
+    <EmbeddedResource Include="SM\FrmMenuInfo.resx">
+      <DependentUpon>FrmMenuInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
