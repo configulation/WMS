@@ -11,7 +11,7 @@ namespace Models.DModels
     /// </summary>
     [Serializable]
     [Table("RoleInfos")]
-    [PrimaryKey("RoleId")]
+    [PrimaryKey("RoleId",autoIncrement =true)]
     public class RoleInfoModel
     {
         /// <summary>

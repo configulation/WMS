@@ -88,6 +88,18 @@
     <Compile Include="SM\FrmMenuList.Designer.cs">
       <DependentUpon>FrmMenuList.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\FrmRoleInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmRoleInfo.Designer.cs">
+      <DependentUpon>FrmRoleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SM\FrmRoleList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmRoleList.Designer.cs">
+      <DependentUpon>FrmRoleList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\FrmUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </Compile>
     <EmbeddedResource Include="SM\FrmMenuList.resx">
       <DependentUpon>FrmMenuList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\FrmRoleInfo.resx">
+      <DependentUpon>FrmRoleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\FrmRoleList.resx">
+      <DependentUpon>FrmRoleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\FrmUserInfo.resx">
       <DependentUpon>FrmUserInfo.cs</DependentUpon>
