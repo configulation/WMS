@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="DModels\MenuInfoModel.cs" />
     <Compile Include="DModels\RoleInfoModel.cs" />
+    <Compile Include="DModels\RoleMenuInfoModel .cs" />
+    <Compile Include="DModels\RoleTMenuInfoModel.cs" />
     <Compile Include="DModels\ToolMenuInfoModel .cs" />
     <Compile Include="DModels\UserInfoModel.cs" />
     <Compile Include="DModels\UserRoleInfoModel.cs" />

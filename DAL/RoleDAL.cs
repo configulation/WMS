@@ -1,4 +1,5 @@
-﻿using DAL.Base;
+﻿using Common;
+using DAL.Base;
 using Helper;
 using Models.DModels;
 using System;
@@ -112,8 +113,90 @@ namespace DAL
                     sqlList.Add($"delete from {table}  where {strWhere}");
                 }
             }
-
+            
             return sqlList;
+        }
+
+        /// <summary>
+        /// 保存权限数据
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <param name="rmList"></param>
+        /// <param name="rtmList"></param>
+        /// <returns></returns>
+        public bool SetRoleRight(int roleId, List<RoleMenuInfoModel> rmList, List<RoleTMenuInfoModel> rtmList)
+        {
+            //先删除角色相关的权限数据  检查 ---是否存在这么一条关系数据，否---插入   不插入
+            return SqlHelper.ExecuteTrans<bool>(cmd =>
+            {
+                try
+                {
+                    if (rmList.Count > 0)
+                    {
+                        string noIds = string.Join(",", rmList.Select(rm => rm.MId));
+                        cmd.CommandText = $"delete from RoleMenuInfos  where MId not in ({noIds}) and RoleId={roleId}  and IsDeleted=0";
+                        cmd.ExecuteNonQuery();
+                        foreach (var rm in rmList)
+                        {
+                            cmd.CommandText = $"select count(1) from RoleMenuInfos where RoleId={rm.RoleId} and MId = {rm.MId} and IsDeleted=0";
+                            object oCount = cmd.ExecuteScalar();
+                            if (oCount != null && oCount.ToString() != "")
+                            {
+                                int count = oCount.GetInt();
+                                if (count == 0)
+                                {
+                                    SqlModel insertModel = CreateSql.CreateInsertSql<RoleMenuInfoModel>(rm, "MId,RoleId,Creator", 0);
+                                    cmd.CommandText = insertModel.Sql;
+                                    foreach (var p in insertModel.Paras)
+                                    {
+                                        cmd.Parameters.Add(p);
+                                    }
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Parameters.Clear();
+                                }
+                                else
+                                    continue;
+                            }
+                        }
+                    }
+                    if (rtmList.Count > 0)
+                    {
+                        string noIds = string.Join(",", rtmList.Select(rtm => rtm.TMenuId));
+                        cmd.CommandText = $"delete from RoleTMenuInfos  where TMenuId not in ({noIds}) and RoleId={roleId}  and IsDeleted=0";
+                        cmd.ExecuteNonQuery();
+                        foreach (var rtm in rtmList)
+                        {
+                            cmd.CommandText = $"select count(1) from RoleTMenuInfos where RoleId={rtm.RoleId} and TMenuId = {rtm.TMenuId} and IsDeleted=0";
+                            object oCount = cmd.ExecuteScalar();
+                            if (oCount != null && oCount.ToString() != "")
+                            {
+                                int count = oCount.GetInt();
+                                if (count == 0)
+                                {
+                                    SqlModel insertModel = CreateSql.CreateInsertSql<RoleTMenuInfoModel>(rtm, "TMenuId,RoleId,Creator", 0);
+                                    cmd.CommandText = insertModel.Sql;
+                                    foreach (var p in insertModel.Paras)
+                                    {
+                                        cmd.Parameters.Add(p);
+                                    }
+                                    cmd.ExecuteNonQuery();
+                                    cmd.Parameters.Clear();
+                                }
+                                else
+                                    continue;
+                            }
+                        }
+                    }
+                    cmd.Transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    cmd.Transaction.Rollback();
+                    throw new Exception("保存权限数据，执行异常！", ex);
+                }
+            });
+            //保存权限数据
         }
     }
 }

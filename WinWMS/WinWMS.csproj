@@ -88,6 +88,12 @@
     <Compile Include="SM\FrmMenuList.Designer.cs">
       <DependentUpon>FrmMenuList.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\FrmRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmRight.Designer.cs">
+      <DependentUpon>FrmRight.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\FrmRoleInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="SM\FrmMenuList.resx">
       <DependentUpon>FrmMenuList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\FrmRight.resx">
+      <DependentUpon>FrmRight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\FrmRoleInfo.resx">
       <DependentUpon>FrmRoleInfo.cs</DependentUpon>

@@ -41,7 +41,7 @@ namespace DAL
                 strWhere += $"and  (MName like @keyword or ParentName like @keyword  )";
             }
 
-            return GetModelList(strWhere, cols, "MOrder");
+            return GetModelList(strWhere, cols, "ParentId,MOrder");
         }
 
         /// <summary>
@@ -164,6 +164,15 @@ namespace DAL
             }
 
             return menuIds;
+        }
+
+        /// <summary>
+        /// 获取所有菜单列表（绑定TreeView）
+        /// </summary>
+        /// <returns></returns>
+        public List<MenuInfoModel> GetTvMenus()
+        {
+            return GetModelList("","MId,MName,ParentId","");
         }
     }
 }

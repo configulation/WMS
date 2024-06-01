@@ -12,7 +12,7 @@ namespace BLL
     public class RoleBLL
     {
         RoleDAL roleDAL = new RoleDAL();
-
+        RoleMenuDAL rmDAL = new RoleMenuDAL();
         
 
         /// <summary>
@@ -72,6 +72,64 @@ namespace BLL
         public bool DeleteRoles(List<int> roleIds, int delType)
         {
             return roleDAL.DeleteRoles(roleIds, delType);
+        }
+
+        /// <summary>
+        /// 获取绑定的角色列表（主要用于绑定下拉框或列表框）
+        /// </summary>
+        /// <returns></returns>
+        public List<RoleInfoModel> GetAllRoles()
+        {
+            return roleDAL.GetAllRoleList();
+        }
+
+        public RoleInfoModel GetRoleInfoById(int roleId)
+        {
+            return roleDAL.GetById(roleId, "RoleId,RoleName,Remark,IsAdmin");
+        }
+
+        /// <summary>
+        /// 获取指定角色的菜单编号集合
+        /// </summary>
+        /// <param name="roleId"></param>
+        /// <returns></returns>
+        public List<int> GetRoleMenuList(int roleId)
+        {
+            var result = rmDAL.GetRoleMenuList(roleId);
+
+            return result.Select(rm=>rm.MId).ToList();
+        }
+
+        public bool SetRoleRight(int rId, List<int> menuIds, List<int> tMenuIds, string uName)
+        {
+            List<RoleMenuInfoModel> rmList = new List<RoleMenuInfoModel>();
+            List<RoleTMenuInfoModel> rtmList = new List<RoleTMenuInfoModel>();
+            if (menuIds !=null)
+            {
+                foreach (int menuId in menuIds)
+                {
+                    rmList.Add(new RoleMenuInfoModel()
+                    {
+                        MId = menuId,
+                        RoleId = rId,
+                        Creator = uName
+                    });
+                }
+            }
+            if (tMenuIds != null)
+            {
+                foreach (int tmenu in tMenuIds)
+                {
+                    rtmList.Add(new RoleTMenuInfoModel()
+                    {
+                        TMenuId = tmenu,
+                        RoleId = rId,
+                        Creator = uName
+                    });
+                }
+            }
+
+           return roleDAL.SetRoleRight(rId, rmList, rtmList);
         }
     }
 }

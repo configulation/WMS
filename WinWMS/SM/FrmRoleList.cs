@@ -80,7 +80,7 @@ namespace WinWMS.SM
                             ShowRoleInfoPage(2, roleInfo.RoleId);
                             break;
                         case "分配权限":
-                            //ShowRightPage(roleInfo.RoleId);
+                            ShowRightPage(roleInfo.RoleId);
                             break;
                         case "删除":
                             DeleteRole(roleInfo);
@@ -149,6 +149,27 @@ namespace WinWMS.SM
                 MessageHelper.MsgErrorShow("请选择要删除的角色信息！");
                 return;
             }
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            ShowRightPage(0);
+        }
+
+        /// <summary>
+        /// 打开权限分配页面
+        /// </summary>
+        /// <param name="actType"></param>
+        /// <param name="roleId"></param>
+        private void ShowRightPage(int roleId)
+        {
+            FrmRight fRight = new FrmRight();
+            fRight.Tag = new 
+            {
+                UName = uName,
+                RoleId = roleId
+            };
+            fRight.ShowDialog();
         }
     }
 }

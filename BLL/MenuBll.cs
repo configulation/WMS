@@ -56,5 +56,14 @@ namespace BLL
         {
             return menuDAL.DeleteMenuInfo(Ids, delType);
         }
+
+        /// <summary>
+        /// 获取所有菜单列表（绑定TreeView）
+        /// </summary>
+        /// <returns></returns>
+        public List<MenuInfoModel> GetTvMenus()
+        {
+            return menuDAL.GetTvMenus();
+        }
     }
 }
